@@ -4,12 +4,11 @@ This repository provides a reproducible, paper-style experimental framework for 
 
 ## What is implemented
 
-- Full experiment suite matching the thesis protocol in `intruct.md`:
-  - Baseline comparison (`LSTM`, `XGBoost`, `TDA-LSTM`, robust density-filtered `TDA-LSTM`)
-  - Impact of multidimensionality (target-only vs joint multivariate embedding)
-  - Robustness ablation with synthetic noise stress testing
-  - Heuristic parameter selection vs Bayesian optimization (Optuna)
-  - SHAP-based interpretability with XGBoost surrogate
+- Baseline comparison (`LSTM`, `XGBoost`, `TDA-LSTM`, robust density-filtered `TDA-LSTM`)
+- Impact of multidimensionality (target-only vs joint multivariate embedding)
+- Robustness ablation with synthetic noise stress testing
+- Heuristic parameter selection vs Bayesian optimization (Optuna)
+- SHAP-based interpretability with XGBoost surrogate
 - Segment-wise TDA feature extraction using sliding windows:
   - Takens embedding
   - Persistence diagrams (`H0`, `H1`, `H2`) via `ripser`
