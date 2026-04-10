@@ -1,0 +1,75 @@
+Metadata-Version: 2.4
+Name: tda-forecasting-thesis
+Version: 0.1.0
+Summary: Conference-grade experiments for time-series forecasting with robust TDA features
+Author: MTP2 Research
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: numpy>=1.26.0
+Requires-Dist: pandas>=2.1.0
+Requires-Dist: scipy>=1.11.0
+Requires-Dist: scikit-learn>=1.4.0
+Requires-Dist: xgboost>=2.0.0
+Requires-Dist: yfinance>=0.2.54
+Requires-Dist: ripser>=0.6.8
+Requires-Dist: persim>=0.3.7
+Requires-Dist: optuna>=3.6.0
+Requires-Dist: torch>=2.2.0
+Requires-Dist: shap>=0.46.0
+Requires-Dist: pyyaml>=6.0.1
+Requires-Dist: matplotlib>=3.8.0
+
+# TDA Forecasting Thesis Experiments
+
+This repository provides a reproducible, paper-style experimental framework for multivariate time-series forecasting with Topological Data Analysis (TDA), including robust density-filtered persistent homology features.
+
+## What is implemented
+
+- Full experiment suite matching the thesis protocol in `intruct.md`:
+  - Baseline comparison (`LSTM`, `XGBoost`, `TDA-LSTM`, robust density-filtered `TDA-LSTM`)
+  - Impact of multidimensionality (target-only vs joint multivariate embedding)
+  - Robustness ablation with synthetic noise stress testing
+  - Heuristic parameter selection vs Bayesian optimization (Optuna)
+  - SHAP-based interpretability with XGBoost surrogate
+- Segment-wise TDA feature extraction using sliding windows:
+  - Takens embedding
+  - Persistence diagrams (`H0`, `H1`, `H2`) via `ripser`
+  - Entropy, amplitude, number-of-points, and persistence-image statistics
+- Density filtering via KDE before Vietoris-Rips construction
+
+## Methodological grounding
+
+The implementation aligns with:
+
+- Chaos (2025): end-to-end TDA pipeline for time-series/phase-space and machine-learning features from persistence descriptors.
+- Entropy (2023): multivariate time-series TDA principles, metric/design sensitivity, and outlier stability concerns.
+- Neural Computing and Applications (2025): financial forecasting with sliding-window TDA descriptors (entropy/amplitude/point count), and feature-augmented predictive models.
+
+## Installation (uv)
+
+```bash
+uv venv
+source .venv/bin/activate
+uv pip install -e .
+```
+
+## Run all experiments
+
+```bash
+tda-exp --config configs/experiment.yaml
+```
+
+Outputs are written to `results/`:
+
+- `experiment_1_baseline.csv`
+- `experiment_2_multidimensionality.csv`
+- `experiment_3_robustness.csv`
+- `experiment_4_optimization.csv`
+- `experiment_5_shap_importance.csv`
+
+## Notes for thesis-quality reporting
+
+- Fix random seeds and report hardware/software versions.
+- Use rolling-origin (walk-forward) revalidation for final tables.
+- Add statistical significance testing (Diebold-Mariano / Wilcoxon signed-rank) for model comparisons.
+- Include hyperparameter ranges and compute budgets in the appendix.

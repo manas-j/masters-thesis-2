@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tda-forecasting-thesis"
+version = "0.1.0"
+description = "Conference-grade experiments for time-series forecasting with robust TDA features"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "MTP2 Research" }]
+dependencies = [
+  "numpy>=1.26.0",
+  "pandas>=2.1.0",
+  "scipy>=1.11.0",
+  "scikit-learn>=1.4.0",
+  "xgboost>=2.0.0",
+  "yfinance>=0.2.54",
+  "ripser>=0.6.8",
+  "persim>=0.3.7",
+  "optuna>=3.6.0",
+  "torch>=2.2.0",
+  "shap>=0.46.0",
+  "pyyaml>=6.0.1",
+  "matplotlib>=3.8.0",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[project.scripts]
+tda-exp = "tda_forecasting.cli:main"

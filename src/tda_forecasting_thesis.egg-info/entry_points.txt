@@ -1,0 +1,2 @@
+[console_scripts]
+tda-exp = tda_forecasting.cli:main

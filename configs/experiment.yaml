@@ -1,0 +1,45 @@
+data:
+  start: "2012-01-01"
+  end: "2025-01-01"
+  target_ticker: "^GSPC"
+  feature_tickers:
+    - "^VIX"
+    - "^TNX"
+    - "DX-Y.NYB"
+    - "XLK"
+    - "XLF"
+    - "XLE"
+
+features:
+  heuristic_tau: 2
+  heuristic_embed_dim: 3
+  heuristic_window_len: 80
+  heuristic_kde_bandwidth: 0.6
+  density_quantile: 0.05
+
+training:
+  seed: 42
+  test_size: 0.2
+  lstm_seq_len: 20
+  lstm_epochs: 30
+  optuna_lstm_epochs: 12
+  lstm_hidden_size: 64
+  batch_size: 64
+
+experiments:
+  stress_noise_prob: 0.02
+  stress_noise_scale: 8.0
+
+optimization:
+  n_trials: 20
+  tau_min: 1
+  tau_max: 5
+  embed_dim_min: 2
+  embed_dim_max: 5
+  window_min: 50
+  window_max: 120
+  kde_bw_min: 0.2
+  kde_bw_max: 1.5
+
+paths:
+  results_dir: "results"

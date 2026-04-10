@@ -1,0 +1,17 @@
+feature,mean_abs_shap
+H0_amplitude,0.0011234634
+H0_entropy,0.0010140707
+lag_mean_5,0.0006380523
+lag_std_5,0.00063044915
+H2_entropy,0.00045052334
+H1_amplitude,0.00042810568
+PI_H1_max,0.00040287877
+lag_mean_20,0.00038499234
+PI_H1_sum,0.00035173952
+H2_amplitude,0.0003053564
+H1_entropy,0.00030251156
+H1_npoints,0.00023073838
+H2_npoints,0.00012938822
+density_mean,2.4194309e-05
+H0_npoints,0.0
+density_kept_ratio,0.0
