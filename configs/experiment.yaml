@@ -31,7 +31,8 @@ experiments:
   stress_noise_scale: 8.0
 
 optimization:
-  n_trials: 20
+  n_trials: 24
+  h0_activity_weight: 0.08
   tau_min: 1
   tau_max: 5
   embed_dim_min: 2
@@ -40,6 +41,17 @@ optimization:
   window_max: 120
   kde_bw_min: 0.2
   kde_bw_max: 1.5
+  grid_search:
+    enabled: true
+    max_configs: 80
+    top_k_for_warmstart: 8
+    lstm_epochs: 10
+    tau: [1, 2, 3, 4, 5]
+    embed_dim: [2, 3, 4, 5]
+    window_len: [45, 55, 65, 75, 85, 95, 105, 115, 120]
+    kde_bandwidth: [0.2, 0.35, 0.5, 0.65, 0.85, 1.05, 1.25, 1.45]
+    density_quantile: [0.02, 0.04, 0.06, 0.08, 0.10, 0.12, 0.16, 0.20]
 
 paths:
   results_dir: "results"
+  plots_dir: "plots_and_visualizations"

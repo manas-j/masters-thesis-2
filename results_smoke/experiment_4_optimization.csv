@@ -1,3 +1,3 @@
-model,rmse,mae,directional_accuracy,method,tau,embed_dim,window_len,kde_bandwidth,optimization_seconds,density_quantile
-Robust Density-Filtered TDA-LSTM,0.02840398734720247,0.020209457218992286,0.5188781014023732,Heuristic params,2,3,80,0.6,0.0,
-Robust Density-Filtered TDA-LSTM,0.0179058952020857,0.013258949545812046,0.512486427795874,Optuna params,2,5,101,0.9782560294561475,312.7530634100003,0.039643541684062936
+model,rmse,mae,directional_accuracy,method,tau,embed_dim,window_len,optimization_seconds,kde_bandwidth,density_quantile
+LSTM,0.010505583274287331,0.00822607908482883,0.4864864864864865,Heuristic params,2,3,60,0.0,,
+LSTM,0.012984937824918795,0.01043425606594432,0.547945205479452,Optuna params,1,3,65,400.1162909870036,0.40616955533913807,0.04454674376934912

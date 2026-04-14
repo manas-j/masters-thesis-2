@@ -13,5 +13,9 @@ def mae(y_true: np.ndarray, y_pred: np.ndarray) -> float:
 
 
 def directional_accuracy(y_true: np.ndarray, y_pred: np.ndarray) -> float:
-    signs_match = np.sign(y_true) == np.sign(y_pred)
-    return float(np.mean(signs_match))
+    y_true = np.asarray(y_true).ravel()
+    y_pred = np.asarray(y_pred).ravel()
+    mask = y_true != 0
+    if not np.any(mask):
+        return 0.5
+    return float(np.mean(np.sign(y_true[mask]) == np.sign(y_pred[mask])))

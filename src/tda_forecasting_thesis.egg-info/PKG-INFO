@@ -18,6 +18,7 @@ Requires-Dist: torch>=2.2.0
 Requires-Dist: shap>=0.46.0
 Requires-Dist: pyyaml>=6.0.1
 Requires-Dist: matplotlib>=3.8.0
+Requires-Dist: tqdm>=4.66.0
 
 # TDA Forecasting Thesis Experiments
 
@@ -45,18 +46,32 @@ The implementation aligns with:
 - Entropy (2023): multivariate time-series TDA principles, metric/design sensitivity, and outlier stability concerns.
 - Neural Computing and Applications (2025): financial forecasting with sliding-window TDA descriptors (entropy/amplitude/point count), and feature-augmented predictive models.
 
-## Installation (uv)
+## Installation
 
 ```bash
-uv venv
-source .venv/bin/activate
-uv pip install -e .
+uv sync
 ```
 
 ## Run all experiments
 
 ```bash
-tda-exp --config configs/experiment.yaml
+uv run tda-exp --config configs/experiment.yaml
+```
+
+For a quicker local check (shorter history, fewer Optuna trials):
+
+```bash
+uv run tda-exp --config configs/experiment_smoke.yaml
+```
+
+## Plots (training curves, TDA diagnostics, experiment bars)
+
+After experiments have produced `results/` (or `results_smoke/`), regenerate figures:
+
+```bash
+uv run python scripts/generate_visualizations.py --config configs/experiment.yaml
+# or, for smoke outputs:
+uv run python scripts/generate_visualizations.py --config configs/experiment_smoke.yaml --results-dir results_smoke
 ```
 
 Outputs are written to `results/`:
@@ -70,6 +85,6 @@ Outputs are written to `results/`:
 ## Notes for thesis-quality reporting
 
 - Fix random seeds and report hardware/software versions.
-- Use rolling-origin (walk-forward) revalidation for final tables.
+- Use walk-forward revalidation for final tables.
 - Add statistical significance testing (Diebold-Mariano / Wilcoxon signed-rank) for model comparisons.
 - Include hyperparameter ranges and compute budgets in the appendix.

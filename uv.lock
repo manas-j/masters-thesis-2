@@ -2580,6 +2580,7 @@ dependencies = [
     { name = "shap", version = "0.49.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11'" },
     { name = "shap", version = "0.51.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.11'" },
     { name = "torch" },
+    { name = "tqdm" },
     { name = "xgboost" },
     { name = "yfinance" },
 ]
@@ -2597,6 +2598,7 @@ requires-dist = [
     { name = "scipy", specifier = ">=1.11.0" },
     { name = "shap", specifier = ">=0.46.0" },
     { name = "torch", specifier = ">=2.2.0" },
+    { name = "tqdm", specifier = ">=4.66.0" },
     { name = "xgboost", specifier = ">=2.0.0" },
     { name = "yfinance", specifier = ">=0.2.54" },
 ]

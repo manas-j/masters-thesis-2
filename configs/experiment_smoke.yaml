@@ -1,0 +1,58 @@
+# Short-range smoke test (faster CI / local check)
+data:
+  start: "2022-01-01"
+  end: "2024-01-01"
+  target_ticker: "^GSPC"
+  feature_tickers:
+    - "^VIX"
+    - "^TNX"
+    - "DX-Y.NYB"
+    - "XLK"
+    - "XLF"
+    - "XLE"
+
+features:
+  heuristic_tau: 2
+  heuristic_embed_dim: 3
+  heuristic_window_len: 60
+  heuristic_kde_bandwidth: 0.5
+  density_quantile: 0.05
+
+training:
+  seed: 42
+  test_size: 0.2
+  lstm_seq_len: 15
+  lstm_epochs: 5
+  optuna_lstm_epochs: 3
+  lstm_hidden_size: 32
+  batch_size: 64
+
+experiments:
+  stress_noise_prob: 0.02
+  stress_noise_scale: 8.0
+
+optimization:
+  n_trials: 6
+  h0_activity_weight: 0.08
+  tau_min: 1
+  tau_max: 3
+  embed_dim_min: 2
+  embed_dim_max: 3
+  window_min: 40
+  window_max: 70
+  kde_bw_min: 0.3
+  kde_bw_max: 0.8
+  grid_search:
+    enabled: true
+    max_configs: 12
+    top_k_for_warmstart: 3
+    lstm_epochs: 3
+    tau: [1, 2, 3]
+    embed_dim: [2, 3]
+    window_len: [45, 55, 65]
+    kde_bandwidth: [0.35, 0.55, 0.75]
+    density_quantile: [0.04, 0.08, 0.14]
+
+paths:
+  results_dir: "results_smoke"
+  plots_dir: "plots_and_visualizations"

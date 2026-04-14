@@ -14,6 +14,8 @@ def fit_predict_xgb(X_train: np.ndarray, y_train: np.ndarray, X_val: np.ndarray,
         reg_lambda=1.0,
         objective="reg:squarederror",
         random_state=seed,
+        tree_method="hist",
+        n_jobs=-1,
     )
     model.fit(X_train, y_train)
     return model.predict(X_val)
@@ -29,6 +31,8 @@ def fit_xgb_model(X_train: np.ndarray, y_train: np.ndarray, seed: int = 42) -> X
         reg_lambda=1.0,
         objective="reg:squarederror",
         random_state=seed,
+        tree_method="hist",
+        n_jobs=-1,
     )
     model.fit(X_train, y_train)
     return model

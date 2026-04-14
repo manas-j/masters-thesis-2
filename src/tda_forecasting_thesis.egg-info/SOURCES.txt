@@ -6,6 +6,7 @@ src/tda_forecasting/config.py
 src/tda_forecasting/data.py
 src/tda_forecasting/experiments.py
 src/tda_forecasting/metrics.py
+src/tda_forecasting/plots.py
 src/tda_forecasting/tda_features.py
 src/tda_forecasting/models/lstm.py
 src/tda_forecasting/models/tree.py
