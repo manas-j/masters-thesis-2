@@ -1,4 +1,4 @@
-# TDA Forecasting Thesis Experiments
+# Experiments
 
 This repository provides a reproducible, paper-style experimental framework for multivariate time-series forecasting with Topological Data Analysis (TDA), including robust density-filtered persistent homology features.
 
@@ -15,14 +15,6 @@ This repository provides a reproducible, paper-style experimental framework for 
   - Persistence diagrams (`H0`, `H1`, `H2`) via `ripser`
   - Entropy, amplitude, number-of-points, and persistence-image statistics
 - Density filtering via KDE before Vietoris-Rips construction
-
-## Methodological grounding
-
-The implementation aligns with:
-
-- Chaos (2025): end-to-end TDA pipeline for time-series/phase-space and machine-learning features from persistence descriptors.
-- Entropy (2023): multivariate time-series TDA principles, metric/design sensitivity, and outlier stability concerns.
-- Neural Computing and Applications (2025): financial forecasting with sliding-window TDA descriptors (entropy/amplitude/point count), and feature-augmented predictive models.
 
 ## Installation
 
@@ -59,10 +51,3 @@ Outputs are written to `results/`:
 - `experiment_3_robustness.csv`
 - `experiment_4_optimization.csv`
 - `experiment_5_shap_importance.csv`
-
-## Notes for thesis-quality reporting
-
-- Fix random seeds and report hardware/software versions.
-- Use walk-forward revalidation for final tables.
-- Add statistical significance testing (Diebold-Mariano / Wilcoxon signed-rank) for model comparisons.
-- Include hyperparameter ranges and compute budgets in the appendix.
